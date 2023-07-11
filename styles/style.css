@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css?family=Karla");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+
+*{ margin: 0; padding: 0; }
+
+body {
+    font-size: 16px;
+    font-family: "Karla";
+    background-color: hsl(204, 43%, 93%);
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 30px;
+    grid-template-columns: 1fr 650px 1fr;
+    grid-template-areas:
+    ". main ."
+    "footer footer footer";
+}
+
+main {
+    grid-area: main;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.widget {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+}
+
+.section {
+    display: grid;
+    align-items: center;
+    height: 250px;
+    width: 100%;
+}
+
+.one {
+    grid-template-rows: repeat(2, 1fr) 2fr;
+    grid-template-columns: 30px 1fr 30px;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    grid-template-areas: 
+    ". title ." 
+    ". subtitle ." 
+    ". caption .";
+}
+
+.one h1 {
+    grid-area: title;
+    font-size: 1.75em;
+    color: hsl(179, 62%, 43%);
+}
+
+.one h2 {
+    grid-area: subtitle;
+    font-size: 1em;
+    font-weight: 700;
+    color: hsl(71, 73%, 54%);
+}
+
+.one .caption {
+    grid-area: caption;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-content: flex-start;
+    height: 100%;
+    color: hsl(0, 0%, 0%, 40%);
+    line-height: 22px;
+}
+
+.two {
+    color: white;
+    grid-template-rows: repeat(2, 1fr) 2fr;
+    grid-template-columns: 30px 1fr 30px;
+    width: 50%;
+    background-color: hsl(179, 62%, 43%);
+    border-bottom-left-radius: 10px;
+    grid-template-areas: 
+    ". title ." 
+    ". pricing ." 
+    ". signup .";
+}
+
+.two h2 {
+    grid-area: title;
+}
+
+.two .pricing {
+    grid-area: pricing;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 15px;
+}
+
+.two .price-line {
+    color: hsla(0, 0%, 100%, 0.5);
+}
+
+.two .price {
+    color: white;
+    font-size: 2em;
+    font-weight: 700;
+    padding-right: 20px;
+}
+
+.two .signup {
+    grid-area: signup;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    width: 100%;
+    background-color: hsl(71, 73%, 54%);
+    height: 50px;
+    border-radius: 5px;
+    filter: drop-shadow(4px 4px 10px rgba(0,0,0,0.2));
+}
+
+.three {
+    width: 50%;
+    background-color: hsla(179, 62%, 43%, 70%);
+    color: white;
+    border-bottom-right-radius: 10px;
+    grid-template-rows: 2fr 5fr;
+    grid-template-columns: 60px 1fr 60px;
+    grid-template-areas: 
+        ". title ." 
+        ". qualities ."
+}
+
+.three h2 {
+    grid-area: title;
+    margin-bottom: 5%;
+}
+.three ul {
+    color: hsla(0, 0%, 100%, 0.75);
+}
+
+.three .qualities {
+    grid-area: qualities;
+    display: flex;
+    flex-direction: column;
+    row-gap: 7px;
+    font-size: 0.9em;
+    align-self: flex-start;
+}
+
+footer {
+    font-family: "Ubuntu";
+    padding-top: 5px;
+    grid-area: footer;
+    background-color: #24283b;
+    color: #2ac3de;
+    text-align: center;
+    font-size: 12px;
+    border-top: solid #1a1b26 5px;
+}
+
+footer a {
+    color: #9ece6a;
+    font-weight: 800;
+}
+
+@media (max-width: 800px) {
+    
+    body {
+        grid-template-columns: 1fr 10fr 1fr;
+    }
+    
+    .section {
+        min-height: 225px;
+        height: 30%;
+        max-height: 300px;
+    }
+
+    .one {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    .one h1 {
+        grid-area: title;
+        font-size: 1.5em;
+        color: hsl(179, 62%, 43%);
+    }
+
+    .two {
+        width: 100%;
+        border-bottom-left-radius: 0;
+        grid-template-columns: 30px 1fr 30px;
+    }
+    
+    .three {
+        width: 100%;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        grid-template-columns: 30px 1fr 30px;
+    }
+}
